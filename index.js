@@ -1,21 +1,24 @@
-var assign = require('lodash.assign');
-var isPlainObject = require('lodash.isplainobject');
+function isChildren(React, x) {
+  return typeof x === 'string' || typeof x === 'number' || Array.isArray(x) || React.isValidElement(x);
+}
 
 function h(React, selector, props, children) {
-  if (isPlainObject(props)) {
-    console.assert(!props.id && !props.className);
-  } else {
+  if (isChildren(props)) {
     children = props;
     props = {};
   }
+  props = Object.assign({}, props || {});
+  console.assert(!props.id && !props.className);
   var parts = selector.split('.');
   var x = parts[0].split('#'), tagName = x[0], id = x[1];
   var className = parts.slice(1).join(' ');
   console.assert(tagName);
-  props = assign({}, props, {
-    id: id || undefined,
-    className: className || undefined
-  });
+  if (id) {
+    props.id = id;
+  }
+  if (className) {
+    props.className = className;
+  }
   return React.createElement(tagName, props, children);
 }
 
