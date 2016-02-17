@@ -3,7 +3,7 @@ function isChildren(React, x) {
 }
 
 function h(React, selector, props, children) {
-  if (isChildren(props)) {
+  if (isChildren(React, props)) {
     children = props;
     props = {};
   }
