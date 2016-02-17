@@ -1,4 +1,4 @@
-# react-h
+# react-h-function
 
 An `h` function for [React], inspired by [Mercury].
 
