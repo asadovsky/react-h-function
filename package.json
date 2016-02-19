@@ -8,5 +8,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/asadovsky/react-h-function"
+  },
+  "dependencies": {
+    "lodash.assign": "^4.0.3"
   }
 }
