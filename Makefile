@@ -4,8 +4,7 @@ PATH := node_modules/.bin:$(PATH)
 .DELETE_ON_ERROR:
 
 node_modules: package.json
-	npm prune
-	npm install
+	yarn install
 	touch $@
 
 .PHONY: clean
